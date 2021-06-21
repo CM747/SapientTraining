@@ -2,21 +2,21 @@ pipeline {
     agent any
 
     stages {
-	cd myproject
         stage('Compile') {
             steps {
-		mvn compile
+				cd myproject
+				mvn compile
             }
         }
-	stage('Test'){
-	    steps{
-		mvn test
-	    }
-	}
-	stage('Deploy') {
-	    steps{
-		mvn package
-	    }
-	}
+		stage('Test') {
+			steps{
+				mvn test
+			}
+		}
+		stage('Deploy') {
+			steps{
+				mvn package
+			}
+		}
     }
 }
