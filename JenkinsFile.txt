@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+	cd myproject
+        stage('Compile') {
+            steps {
+		mvn compile
+            }
+        }
+	stage('Test'){
+	    steps{
+		mvn test
+	    }
+	}
+	stage('Deploy') {
+	    steps{
+		mvn package
+	    }
+	}
+    }
+}
