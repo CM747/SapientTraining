@@ -4,18 +4,26 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
-				dir
+                bat """
+					cd myproject
+					mvn clean compile
+				"""
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                bat """
+					cd myproject
+					mvn test
+				"""
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                bat """
+					cd myproject
+					mvn package
+				"""
             }
         }
     }
