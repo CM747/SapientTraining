@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat """
+                sh """
 					cd myproject
 					mvn clean compile
 				"""
@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                bat """
+                sh """
 					cd myproject
 					mvn test
 				"""
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                bat """
+                sh"""
 					cd myproject
 					mvn package
 				"""
