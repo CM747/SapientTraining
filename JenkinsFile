@@ -2,15 +2,10 @@ pipeline {
     agent any
 
     stages {
-		stage('Initialise') {
-            steps {
-				dir "demo"
-            }
-        }
         stage('Build') {
             steps {
                 sh """
-					
+					cd demo
 					mvn clean compile
 				"""
             }
@@ -18,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh """
-				
+					cd demo
 					mvn test
 				"""
             }
@@ -26,7 +21,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh"""
-				
+					cd demo
 					mvn package
 				"""
             }
@@ -35,8 +30,8 @@ pipeline {
 		stage('Build Image') {
             steps {
                 sh"""
-					
-				    docker build -t demo1 .
+					cd demo
+					docker build -t demo1 .
 				"""
             }
         }
