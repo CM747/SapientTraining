@@ -31,7 +31,8 @@ pipeline {
             steps {
                 sh"""
 					cd demo
-					sudo docker build -t demo1 .
+					sudo su
+					docker build -t demo1 .
 				"""
             }
         }
