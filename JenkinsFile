@@ -44,7 +44,8 @@ pipeline {
 		stage('Push Image') {
             steps {
                 sh"""
-					docker push 109339778940.dkr.ecr.us-east-1.amazonaws.com/demorepo
+					echo | sudo -S docker push 109339778940.dkr.ecr.us-east-1.amazonaws.com/demorepo
+					
 				"""
             }
         }
