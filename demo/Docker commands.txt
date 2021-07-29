@@ -1,0 +1,15 @@
+https://stackoverflow.com/questions/27767264/how-to-dockerize-maven-project-and-how-many-ways-to-accomplish-it
+
+--> https://www.educative.io/edpresso/how-do-you-dockerize-a-maven-project
+
+
+FROM openjdk:11-jre-slim
+ADD target/my-maven-docker-project.jar my-maven-docker-project.jar
+ENTRYPOINT ["java", "-jar","my-maven-docker-project.jar"]
+EXPOSE 8080
+
+
+
+#docker build -t my-maven-docker-project.jar .
+
+#docker run -p 8080:8080 my-maven-docker-project.jar
